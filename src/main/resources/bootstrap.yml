@@ -1,0 +1,22 @@
+spring:  
+  application:
+    name: swaggerpetstore
+  profiles:
+    active: ${PROFILE}
+  sleuth:
+    sampler:
+      percentage: 1.0
+  cloud:      
+      config: 
+        name: swaggerpetstore, environment
+        uri: ${CONFIG_SERVER_URI}
+        failFast: true
+        retry:
+          maxAttempts: 20  
+ 
+endpoints:
+  health:
+    enabled: true
+  metrics:
+    enabled: true
+  
